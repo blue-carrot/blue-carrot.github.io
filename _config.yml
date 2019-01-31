@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               Aiden
+title:               Jeong Pro
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -13,21 +13,22 @@ url:                 https://blue-carrot.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             개발할때가 가장 행복한 개발자
+tagline:             정프로의 IT 공작소
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  게으르기 때문에 게발자.
-  글쓰는 걸 좋아하고, 디자인과 개발을 좋아한다.
+  새로운것을 좋아하는 평범한 직장인 입니다.
+  항상 프로가 되기 위해 오늘도 하루를 열심히 살아가고 있습니다.
+  email - littpang골뱅이G메일
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              aiden min
+  name:              Jeong
   email:             littpang@gmail.com
 
 # Fallback image and color
-image:               /assets/img/nap.jpg
+image:               /assets/img/nap.png
 color:               '#4f86aa'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
