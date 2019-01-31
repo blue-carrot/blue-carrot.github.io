@@ -19,8 +19,8 @@ tagline:             정프로의 IT 공작소
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
   새로운것을 좋아하는 평범한 직장인 입니다.
-  항상 프로가 되기 위해 오늘도 하루를 열심히 살아가고 있습니다.
-  email - littpang골뱅이G메일
+  항상 프로가 되기 위해 하루하루 열심히 살아가고 있습니다.
+
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
@@ -28,7 +28,7 @@ author:
   email:             littpang@gmail.com
 
 # Fallback image and color
-image:               /assets/img/nap.png
+image:               /assets/img/nap.jpeg
 color:               '#4f86aa'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
