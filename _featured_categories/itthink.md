@@ -1,6 +1,6 @@
 ---
 layout: list
-title: Itthink
+title: IT 생각들
 slug: itthink
 menu: true
 submenu: false

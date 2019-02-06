@@ -1,6 +1,6 @@
 ---
 layout: list
-title: Lifestory
+title: 삶의 이야기
 slug: lifestory
 menu: true
 submenu: false
