@@ -3,7 +3,7 @@ layout: post
 title: "[쿠버네티스] 소개"
 subtitle: "kubernetes"
 categories: devops
-tags: event
+tags: kubernetes
 comments: true
 ---
 
