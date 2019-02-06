@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: spark
+title: Spark
 slug: spark
 category: bigdata
 menu: false
