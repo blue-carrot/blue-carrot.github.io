@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[블록체인] 스토리지"
-subtitle: "BlockChain"
-categories: review
+title: "[쿠버네티스] 소개"
+subtitle: "kubernetes"
+categories: devops
 tags: event
 comments: true
 ---
