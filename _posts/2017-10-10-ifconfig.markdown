@@ -1,0 +1,35 @@
+---
+layout: post
+title: "CentOS 최소 설치 시 ifconfig가 없다면?"
+subtitle: "kubernetes"
+categories: devops
+tags: linux
+comments: true
+---
+
+## ifconfig
+
+CentOS 최소 설치를 하고나서 ip를 확인하고자 ifconfig 명령어를 입력했지만
+
+"command not found"라는 메시지만 확인할수 있습니다.
+
+6버전까진 최소설치를 해도 명령어가 포함되지만 7부터는 설치가 되지 않습니다.
+
+7부터는 ifconfig가 아닌 ip 라는 명령어로 대체되었다고 합니다.
+
+if addr
+
+그렇지만 보기가 영 불편합니다.
+
+다시 ifconfig를 사용하기 위해 설치를 해줍니다.
+
+yum install net-tools
+
+net-tools를 설치하면 ifconfig명령어를 다시 사용하실 수 있습니다.
+
+
+
+
+
+
+
