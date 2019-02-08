@@ -37,9 +37,9 @@ L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
 3. strongswan 설치 후 설정 편집
 ```
 # cat /etc/strongswan/ipsec.conf
-```
-config setup
 
+config setup
+```
 conn %default
     auto=add
  
