@@ -35,7 +35,6 @@ L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
 # yum install xl2tpd strongswan
 ```
 3. strongswan 설치 후 설정 편집
-
 ```
 # cat /etc/strongswan/ipsec.conf
 
@@ -58,9 +57,7 @@ conn L2TP-NAT
 ```
 5. L2TP 구성을 위한 xl2tpd 설정
 xl2tpd가 연결한 VPN Client에 IP를 할당해준다.
-
 DHCP를 사용해보려고 했으나 메뉴얼에 설정이 확인되지 않는다.
-
 할당할 IP 대역은 “ip range”로 지정을 한다.
 ```
 # cat /etc/xl2tpd/xl2tpd.conf
@@ -104,9 +101,7 @@ mru 1280
 # systemctl enable strongswan
 # systemctl enable xl2tpd
 ```
-
 모든 세팅이 끝이 났습니다. 
-
 가지고 계신 VPN Client를 이용해서 정상적으로 L2TP 연결이 되는지 확인하시면 되겠습니다.
 
 
