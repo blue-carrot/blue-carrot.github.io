@@ -1,0 +1,117 @@
+---
+layout: post
+title: "CentOS7에 L2TP VPN 구성"
+subtitle: "CentOS7에 L2TP VPN 구성"
+categories: devops
+tags: linux
+comments: true
+---
+
+## CentOS7에 L2TP VPN 구성
+
+
+사설네트워크를 구성한 후에 외부에서 접속하기 위한 용도로 VPN을 많이 세팅하는 추세입니다.
+
+기존에 PPTP방식에서 보안이 강화된 L2TP 방식으로 많이 전환되고 있고, 애플제품(아이폰, 맥북 등)에서는
+
+PPTP방식으로 접근 자체를 할 수 없게 해놓고 있습니다.
+
+* PPTP(Ponit-to-Point Tunneling Protocol)
+* L2TP(Layer 2 Tunneling Protocol)
+
+L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
+
+1. PPP 설치
+```
+# yum install ppp
+```
+
+2. xl2tpd + strongswan 설치
+```
+# yum install epel-release
+# yum update
+```
+이후, xl2tpd와 strongswan을 설치한다.
+```
+# yum install xl2tpd strongswan
+```
+
+3. strongswan 설치 후 설정 편집
+```
+# cat /etc/strongswan/ipsec.conf
+ 
+config setup
+ 
+conn %default
+    auto=add
+ 
+conn L2TP-NAT
+    type=transport
+    left=%any
+    leftauth=psk
+    right=%any
+    rightauth=psk
+```
+
+4. ipsec 비밀키 설정
+```
+# cat /etc/strongswan/ipsec.secrets
+  PSK "hihello"
+```
+
+5. L2TP 구성을 위한 xl2tpd 설정
+xl2tpd가 연결한 VPN Client에 IP를 할당해준다.
+
+DHCP를 사용해보려고 했으나 메뉴얼에 설정이 확인되지 않는다.
+
+할당할 IP 대역은 “ip range”로 지정을 한다.
+```
+# cat /etc/xl2tpd/xl2tpd.conf
+[lns default]
+  ip range = 192.168.0.201-192.168.0.220
+  length bit = yes
+  refuse pap = yes
+  refuse chap = yes
+  require authentication = yes
+  name = l2tp
+  pppoptfile = /etc/ppp/options.l2tpd
+```
+
+6. L2TP 구성을 위한 PPP 설정
+xl2tpd 설정에서 ppp 옵션 파일을 “/etc/ppp/options.l2tpd”로 설정했다. 해당 파일을 아래와 같이 수정합니다.
+```
+# cat /etc/ppp/options.l2tpd
+ms-dns 8.8.8.8
+name l2tp
+refuse-pap
+refuse-chap
+refuse-mschap
+require-mschap-v2
+nodefaultroute
+nobsdcomp
+mtu 1280
+mru 1280
+```
+
+그리고 사용자 ID와 password를 “/etc/ppp/chap-secrets”에 설정합니다.
+```
+# cat /etc/ppp/chap-secrets
+"testuser" * "12345" *
+```
+7. xl2tpd와 strongswan 실행
+```
+# systemctl start strongswan
+# systemctl start xl2tpd
+```
+
+8. 부팅시 xl2tpd와 strongswan이 자동 실행하도록 설정합니다.
+```
+# systemctl enable strongswan
+# systemctl enable xl2tpd
+```
+
+모든 세팅이 끝이 났습니다. 
+
+가지고 계신 VPN Client를 이용해서 정상적으로 L2TP 연결이 되는지 확인하시면 되겠습니다.
+
+
