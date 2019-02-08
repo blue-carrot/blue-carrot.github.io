@@ -87,17 +87,15 @@ mru 1280
 # cat /etc/ppp/chap-secrets
 "testuser" * "12345" *
 ```
-7. xl2tpd와 strongswan 실행
+7. xl2tpd와 strongswan 실행 및 자동 실행 설정합니다.
 ```
 # systemctl start strongswan
 # systemctl start xl2tpd
-```
-8. 부팅시 xl2tpd와 strongswan이 자동 실행하도록 설정합니다.
-```
 # systemctl enable strongswan
 # systemctl enable xl2tpd
 ```
 모든 세팅이 끝이 났습니다.
+
 
 가지고 계신 VPN Client를 이용해서 정상적으로 L2TP 연결이 되는지 확인하시면 되겠습니다.
 
