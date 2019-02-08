@@ -82,7 +82,6 @@ nobsdcomp
 mtu 1280
 mru 1280
 ```
-
 그리고 사용자 ID와 password를 “/etc/ppp/chap-secrets”에 설정합니다.
 ```
 # cat /etc/ppp/chap-secrets
@@ -98,7 +97,8 @@ mru 1280
 # systemctl enable strongswan
 # systemctl enable xl2tpd
 ```
-모든 세팅이 끝이 났습니다. 
+모든 세팅이 끝이 났습니다.
+
 가지고 계신 VPN Client를 이용해서 정상적으로 L2TP 연결이 되는지 확인하시면 되겠습니다.
 
 
