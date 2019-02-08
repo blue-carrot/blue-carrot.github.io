@@ -12,9 +12,9 @@ comments: true
 
 사설네트워크를 구성한 후에 외부에서 접속하기 위한 용도로 VPN을 많이 세팅하는 추세입니다.
 
-기존에 PPTP방식에서 보안이 강화된 L2TP 방식으로 많이 전환되고 있고, 애플제품(아이폰, 맥북 등)에서는
+기존에 PPTP방식에서 보안이 강화된 L2TP 방식으로 많이 전환되고 있고, 
 
-PPTP방식으로 접근 자체를 할 수 없게 해놓고 있습니다.
+애플제품(아이폰, 맥북 등)에서는 PPTP방식으로 접근 자체를 할 수 없게 해놓고 있습니다.
 
 * PPTP(Ponit-to-Point Tunneling Protocol)
 * L2TP(Layer 2 Tunneling Protocol)
@@ -35,10 +35,12 @@ L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
 # yum install xl2tpd strongswan
 ```
 3. strongswan 설치 후 설정 편집
-```# cat /etc/strongswan/ipsec.conf
- 
+
+```
+# cat /etc/strongswan/ipsec.conf
+
 config setup
- 
+
 conn %default
     auto=add
  
