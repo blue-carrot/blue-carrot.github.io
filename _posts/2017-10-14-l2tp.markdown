@@ -22,8 +22,9 @@ PPTP방식으로 접근 자체를 할 수 없게 해놓고 있습니다.
 L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
 
 1. PPP 설치
-> # yum install ppp
-
+```
+# yum install ppp
+```
 2. xl2tpd + strongswan 설치
 > # yum install epel-release
 > # yum update
@@ -31,9 +32,7 @@ L2TP는 xl2tpd + ppp + strongswan 조합으로 구성할 수 있습니다.
 ```
 # yum install xl2tpd strongswan
 ```
-
 3. strongswan 설치 후 설정 편집
-
 ```
 # cat /etc/strongswan/ipsec.conf
  
@@ -49,13 +48,11 @@ conn L2TP-NAT
     right=%any
     rightauth=psk
 ```
-
 4. ipsec 비밀키 설정
 ```
 # cat /etc/strongswan/ipsec.secrets
   PSK "hihello"
 ```
-
 5. L2TP 구성을 위한 xl2tpd 설정
 xl2tpd가 연결한 VPN Client에 IP를 할당해준다.
 
@@ -73,7 +70,6 @@ DHCP를 사용해보려고 했으나 메뉴얼에 설정이 확인되지 않는�
   name = l2tp
   pppoptfile = /etc/ppp/options.l2tpd
 ```
-
 6. L2TP 구성을 위한 PPP 설정
 xl2tpd 설정에서 ppp 옵션 파일을 “/etc/ppp/options.l2tpd”로 설정했다. 해당 파일을 아래와 같이 수정합니다.
 ```
@@ -100,7 +96,6 @@ mru 1280
 # systemctl start strongswan
 # systemctl start xl2tpd
 ```
-
 8. 부팅시 xl2tpd와 strongswan이 자동 실행하도록 설정합니다.
 ```
 # systemctl enable strongswan
